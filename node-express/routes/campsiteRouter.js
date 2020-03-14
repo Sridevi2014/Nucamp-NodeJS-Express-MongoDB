@@ -1,10 +1,9 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); //jason body parser
 
 const campsiteRouter = express.Router();
 
-campsiteRouter.use(bodyParser.json());
-
+campsiteRouter.use(bodyParser.json());// display json format
 
 campsiteRouter.route('/')
 .all((req, res, next) => {
@@ -48,6 +47,5 @@ campsiteRouter.route('/:campsiteId')
 .delete((req, res) => {
   res.end(`Deleting campsite: ${req.params.campsiteId}`);
 });
-
 
 module.exports = campsiteRouter;

@@ -1,23 +1,24 @@
-const express = require('express');
+const express = require('express'); // imported express
 //The Morgan middleware library is used for logging
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const campsiteRouter = require('./routes/campsiteRouter'); 
+const campsiteRouter = require('./routes/campsiteRouter'); //importe
 const promotionRouter = require('./routes/promotionRouter');
 const partnerRouter = require('./routes/partnerRouter');
 
-const hostname = 'localhost';
+
+const hostname = 'localhost'; //we created server instence
 const port = 3000;
 
-const app = express();
+const app = express();// calling express function / using middlewar
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 
-//if user going to campsites, its going display all campsite details
+//if user requests campsites url, campsiteRouter going display all campsite details
 app.use('/campsites', campsiteRouter);
-//if user going to promotions, its going display all promotion details
+//if user requests promotions url, promotionsRouter going promotions all promotion details
 app.use('/promotions', promotionRouter);
-//if user going to partners, its going display all partner details
+//if user requests partners url, partnerRouter going display all partner details
 app.use('/partners', partnerRouter);
 
 
