@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser'); //jason body parser
+const bodyParser = require('body-parser'); //json body parser
 
 const campsiteRouter = express.Router();
 
